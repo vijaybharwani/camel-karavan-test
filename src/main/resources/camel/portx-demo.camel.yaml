@@ -1,0 +1,11 @@
+- route:
+    id: route-ee2f
+    from:
+      uri: kamelet:timer-source
+      id: from-92f8
+      parameters:
+        message: Hello World
+      steps:
+        - log:
+            message: ${body}
+            id: log-e2e2
