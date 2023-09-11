@@ -119,6 +119,7 @@
                     <compilerArgs>
                         <arg>-parameters</arg>
                     </compilerArgs>
+                    <compilerVersion>17</compilerVersion>
                 </configuration>
             </plugin>
             <plugin>
