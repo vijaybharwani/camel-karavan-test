@@ -1,0 +1,11 @@
+- route:
+    id: route-90dc
+    from:
+      uri: kamelet:timer-source
+      id: from-3474
+      parameters:
+        message: Harvest Route Executig
+      steps:
+        - to:
+            uri: kamelet:log-sink
+            id: to-1692
