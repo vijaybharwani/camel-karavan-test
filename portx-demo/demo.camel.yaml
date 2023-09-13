@@ -1,0 +1,11 @@
+- route:
+    id: route-605b
+    from:
+      uri: kamelet:timer-source
+      id: from-01d5
+      parameters:
+        message: Hello World
+      steps:
+        - to:
+            uri: kamelet:log-sink
+            id: to-9407
