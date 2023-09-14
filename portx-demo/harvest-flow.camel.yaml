@@ -4,7 +4,7 @@
       uri: kamelet:timer-source
       id: from-3474
       parameters:
-        message: Harvest Route Executig
+        message: Harvest Route Executig ( some update in local)
       steps:
         - to:
             uri: kamelet:log-sink
