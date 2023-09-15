@@ -17,10 +17,10 @@ jobs:
           command: "echo Hello, World!"
       - run:
           name: "Install Jbang"
-          command: "curl -Ls https://sh.jbang.dev | bash -s - app setup"
-      - run:
-          name: "Source Command"
-          command: "source /etc/init.d/rc.local"
+          command: "curl -Ls https://sh.jbang.dev | bash -s - app setup | exit"
+      # - run:
+      #     name: "Source Command"
+      #     command: "source /etc/init.d/rc.local"
       - run:
           name: "Jbang Version"
           command: "bash -c ' jbang version' "
