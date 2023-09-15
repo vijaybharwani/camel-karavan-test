@@ -22,7 +22,7 @@ jobs:
           command: "curl -Ls https://sh.jbang.dev | bash -s - app setup"
       - run:
           name: "Jbang Version"
-          command: "jbang version"
+          command: "bash -c ' jbang version ; bash' "
 
 
 # Orchestrate jobs using workflows
