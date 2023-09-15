@@ -10,8 +10,6 @@ jobs:
     # See: https://circleci.com/docs/configuration-reference/#executor-job
     docker:
       - image: cimg/base:stable
-    # Add steps to the job
-    # See: https://circleci.com/docs/configuration-reference/#steps
     steps:
       - checkout
       - run:
@@ -20,6 +18,9 @@ jobs:
       - run:
           name: "Install Jbang"
           command: "curl -Ls https://sh.jbang.dev | bash -s - app setup"
+      - run:
+          name: "Source Command"
+          command: "source /etc/init.d/rc.local"
       - run:
           name: "Jbang Version"
           command: "bash -c ' jbang version' "
