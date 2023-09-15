@@ -18,7 +18,8 @@ jobs:
           name: "Say hello"
           command: "echo Hello, World!"
       - run:
-          name: "curl -Ls https://sh.jbang.dev | bash -s - app setup"
+          name: "Install Jbang"
+          command: "curl -Ls https://sh.jbang.dev | bash -s - app setup"
 
 # Orchestrate jobs using workflows
 # See: https://circleci.com/docs/configuration-reference/#workflows
