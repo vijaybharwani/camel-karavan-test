@@ -27,9 +27,9 @@ jobs:
       - run:
           name: "Install Camel"
           command: "jbang app install camel@apache/camel"
-      - run:
-          name: "Jshell"
-          command: "jshell"
+      # - run:
+      #     name: "Jshell"
+      #     command: "jshell"
       - run:
           name: "Bash"
           command: "bash"
