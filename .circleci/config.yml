@@ -22,6 +22,9 @@ jobs:
           name: "Listing"
           command: "ls -la"
       - run:
+          name: "Jbang trust add"
+          command: "jbang trust add https://github.com/apache/camel/"
+      - run:
           name: "Install Camel"
           command: "jbang app install camel@apache/camel"
       - run:
