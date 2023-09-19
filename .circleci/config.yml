@@ -17,7 +17,16 @@ jobs:
           command: "echo Hello, World!"
       - run:
           name: "Jbang Version"
-          command: "bash -c ' jbang version' "
+          command: "bash -c 'jbang version'"
+      - run:
+          name: "Listing"
+          command: "ls -la"
+      - run:
+          name: "Install Camel"
+          command: "jbang app install camel@apache/camel"
+      - run:
+          name: "Camel Export"
+          command: "camel export --runtime=quarkus --gav=com.foo:acme:1.0-SNAPSHOT"
 
 
 # Orchestrate jobs using workflows
