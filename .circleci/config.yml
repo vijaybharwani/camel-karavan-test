@@ -32,7 +32,7 @@ jobs:
       #     command: "jshell"
       - run:
           name: "Bash"
-          command: "bash"
+          command: "bash; jbang app install camel@apache/camel; exit"
       - run:
           name: "Camel Export"
           command: "camel export --runtime=quarkus --gav=com.foo:acme:1.0-SNAPSHOT"
