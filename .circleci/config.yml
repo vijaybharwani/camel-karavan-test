@@ -28,6 +28,12 @@ jobs:
           name: "Install Camel"
           command: "jbang app install camel@apache/camel"
       - run:
+          name: "Jshell"
+          command: "jshell"
+      - run:
+          name: "Bash"
+          command: "bash"
+      - run:
           name: "Camel Export"
           command: "camel export --runtime=quarkus --gav=com.foo:acme:1.0-SNAPSHOT"
 
