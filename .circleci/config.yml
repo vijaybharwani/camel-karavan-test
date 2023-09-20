@@ -15,13 +15,13 @@ jobs:
       - run:
           name: "Say hello"
           command: "echo Hello, World!"
-      # - run: 
-      #     name: Install OpenJDK 17
-      #     command: |
-      #       apt-get update && apt-get install openjdk-17-jdk
-      #       update-alternatives --set java /usr/lib/jvm/java-17-openjdk-amd64/bin/java
-      #       update-alternatives --set javac /usr/lib/jvm/java-17-openjdk-amd64/bin/javac
-      #       java -version
+      - run: 
+          name: Install OpenJDK 17
+          command: |
+            apt-get update && apt-get install openjdk-17-jdk && yes
+            update-alternatives --set java /usr/lib/jvm/java-17-openjdk-amd64/bin/java
+            update-alternatives --set javac /usr/lib/jvm/java-17-openjdk-amd64/bin/javac
+            java -version
       - run:
           name: "Jbang Version"
           command: "bash -c 'jbang version'"
@@ -34,13 +34,13 @@ jobs:
       - run:
           name: "Camel Export"
           command: "jbang camel@apache/camel export --java-version=11 --runtime=quarkus --gav=com.foo:acme:1.0-SNAPSHOT"
-      - run:
-          name: "Java Version"
-          command: |
-            "export JAVA_HOME = /jbang/.jbang/cache/jdks/17"
-            "export JAVA_VERSION=17.0.8.1+1"
-            "java -version"
-            "export PATH=/jbang/.jbang/cache/jdks/17/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/jbang-0.106.1/bin:/jbang/bin"
+      # - run:
+      #     name: "Java Version"
+      #     command: |
+      #       "export JAVA_HOME = /jbang/.jbang/cache/jdks/17"
+      #       "export JAVA_VERSION=17.0.8.1+1"
+      #       "java -version"
+      #       "export PATH=/jbang/.jbang/cache/jdks/17/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/jbang-0.106.1/bin:/jbang/bin"
 
       - run:
           name: "Maven Install"
