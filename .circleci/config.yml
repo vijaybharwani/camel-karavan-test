@@ -21,6 +21,8 @@ jobs:
             apt-get update && apt-get install -y openjdk-17-jdk
             update-alternatives --set java /usr/lib/jvm/java-17-openjdk-amd64/bin/java
             update-alternatives --set javac /usr/lib/jvm/java-17-openjdk-amd64/bin/javac
+            "export PATH=$PATH:/usr/lib/jvm/java-17-openjdk-amd64/bin"
+            "export JAVA_HOME=/usr/lib/jvm/java-17-openjdk-amd64/bin"
             java -version
       - run:
           name: "Jbang Version"
