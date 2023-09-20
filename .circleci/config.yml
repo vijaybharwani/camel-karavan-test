@@ -39,7 +39,7 @@ jobs:
             source /etc/environment
             java -version
             echo $JAVA_HOME
-            "expose MVNW_VERBOSE=true"
+            "export MVNW_VERBOSE=true"
             "export JAVA_HOME=/usr/lib/jvm/java-17-openjdk-amd64/"
             ./mvnw install -Dquarkus.container-image.build=true
 
