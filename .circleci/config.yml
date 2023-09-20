@@ -19,6 +19,9 @@ jobs:
           name: "Jbang Version"
           command: "bash -c 'jbang version'"
       - run:
+          name: "Jbang Version"
+          command: "export JAVA_HOME=/bin"
+      - run:
           name: "Listing"
           command: "ls -la"
       - run:
@@ -39,8 +42,7 @@ jobs:
             source /etc/environment
             java -version
             echo $JAVA_HOME
-            "ENV MVNW_VERBOSE=true"
-            "export JAVA_HOME=/usr/lib/jvm/java-17-openjdk-amd64/"
+
             ./mvnw install -Dquarkus.container-image.build=true
 
 
