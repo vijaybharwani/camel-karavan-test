@@ -33,7 +33,7 @@ jobs:
           command: "jbang trust add https://github.com/apache/camel/"
       - run:
           name: "Camel Export"
-          command: "jbang camel@apache/camel export --runtime=quarkus --gav=com.foo:acme:1.0-SNAPSHOT --java-version=11"
+          command: "jbang camel@apache/camel export --java-version=11 --runtime=quarkus --gav=com.foo:acme:1.0-SNAPSHOT"
       - run:
           name: "Java Version"
           command: "java -version"
