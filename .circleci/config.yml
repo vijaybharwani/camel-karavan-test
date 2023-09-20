@@ -15,14 +15,6 @@ jobs:
       - run:
           name: "Say hello"
           command: "echo Hello, World!"
-      - run: 
-          name: Install OpenJDK 17
-          command: |
-            apt-get update && apt-get install -y openjdk-17-jdk
-            update-alternatives --set java /usr/lib/jvm/java-17-openjdk-amd64/bin/java
-            update-alternatives --set javac /usr/lib/jvm/java-17-openjdk-amd64/bin/javac
-            source /etc/environment
-            java -version
       - run:
           name: "Jbang Version"
           command: "bash -c 'jbang version'"
@@ -35,13 +27,18 @@ jobs:
       - run:
           name: "Camel Export"
           command: "jbang camel@apache/camel export --runtime=quarkus --gav=com.foo:acme:1.0-SNAPSHOT"
-
       - run:
           name: "Java Version print again"
           command: "java -version"
       - run:
           name: "Maven Install"
-          command: "./mvnw install -Dquarkus.container-image.build=true"
+          command: |
+            apt-get update && apt-get install -y openjdk-17-jdk
+            update-alternatives --set java /usr/lib/jvm/java-17-openjdk-amd64/bin/java
+            update-alternatives --set javac /usr/lib/jvm/java-17-openjdk-amd64/bin/javac
+            source /etc/environment
+            java -version
+            ./mvnw install -Dquarkus.container-image.build=true
 
 
 # Orchestrate jobs using workflows
