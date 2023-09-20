@@ -47,7 +47,8 @@ jobs:
             /opt/java/openjdk/bin/java -version
             echo Which Java
             which java
-            echo 'export JAVA_HOME=/usr/lib/jvm/java-17-openjdk-amd64'
+            echo 'export JAVA_HOME=/usr/lib/jvm/java-17-openjdk-amd64' >> "$BASH_ENV"
+            source "$BASH_ENV"
             ./mvnw install -Dquarkus.container-image.build=true
 
 
