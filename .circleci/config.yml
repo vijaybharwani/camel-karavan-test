@@ -15,40 +15,34 @@ jobs:
       - run:
           name: "Say hello"
           command: "echo Hello, World!"
-      - run:
-          name: "Jbang Version"
-          command: "bash -c 'jbang version'"
-      - run:
-          name: "Listing"
-          command: "ls -la"
+      # - run:
+      #     name: "Jbang Version"
+      #     command: "bash -c 'jbang version'"
+      # - run:
+      #     name: "Listing"
+      #     command: "ls -la"
       - run:
           name: "Jbang trust add"
           command: "jbang trust add https://github.com/apache/camel/"
       - run:
           name: "Camel Export"
           command: "jbang camel@apache/camel export --runtime=quarkus --gav=com.foo:acme:1.0-SNAPSHOT"
+      # - run:
+      #     name: "Java Version print again"
+      #     command: "java -version"
       - run:
-          name: "Java Version print again"
-          command: "java -version"
-      - run:
-          name: "Maven Install"
+          name: "Install JDK 17"
           command: |
             apt-get update && apt-get install -y openjdk-17-jdk
             update-alternatives --set java /usr/lib/jvm/java-17-openjdk-amd64/bin/java
             update-alternatives --set javac /usr/lib/jvm/java-17-openjdk-amd64/bin/javac
             source /etc/environment
-            echo Java Version
-            java -version
-            echo Java Home
-            echo $JAVA_HOME
-            echo PATH
-            echo $PATH
-            echo "Open JDK"
-            /opt/java/openjdk/bin/java -version
-            echo Which Java
-            which java
             echo 'export JAVA_HOME=/usr/lib/jvm/java-17-openjdk-amd64' >> "$BASH_ENV"
             source "$BASH_ENV"
+
+      - run:
+          name: "Maven Install"
+          command: |
             ./mvnw install -Dquarkus.container-image.build=true
 
 
