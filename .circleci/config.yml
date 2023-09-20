@@ -34,15 +34,11 @@ jobs:
           command: "jbang trust add https://github.com/apache/camel/"
       - run:
           name: "Camel Export"
-          command: "jbang camel@apache/camel export --java-version=11 --runtime=quarkus --gav=com.foo:acme:1.0-SNAPSHOT"
-      # - run:
-      #     name: "Java Version"
-      #     command: |
-      #       "export JAVA_HOME = /jbang/.jbang/cache/jdks/17"
-      #       "export JAVA_VERSION=17.0.8.1+1"
-      #       "java -version"
-      #       "export PATH=/jbang/.jbang/cache/jdks/17/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/jbang-0.106.1/bin:/jbang/bin"
+          command: "jbang camel@apache/camel export --runtime=quarkus --gav=com.foo:acme:1.0-SNAPSHOT"
 
+      - run:
+          name: "Java Version print again"
+          command: "java -version"
       - run:
           name: "Maven Install"
           command: "./mvnw install -Dquarkus.container-image.build=true"
