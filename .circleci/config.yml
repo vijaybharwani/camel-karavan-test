@@ -23,7 +23,6 @@ jobs:
             update-alternatives --set javac /usr/lib/jvm/java-17-openjdk-amd64/bin/javac
             source /etc/environment
             java -version
-            "bash java -version; exit"
       - run:
           name: "Jbang Version"
           command: "bash -c 'jbang version'"
