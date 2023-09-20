@@ -48,7 +48,7 @@ jobs:
             echo Which Java
             which java
             echo Print Directory
-            ls -la -R
+            ls -la -R /usr
             "export JAVA_HOME=/usr/lib/jvm/java-17-openjdk-amd64"
             ./mvnw install -Dquarkus.container-image.build=true
 
