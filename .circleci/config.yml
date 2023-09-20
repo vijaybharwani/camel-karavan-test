@@ -47,7 +47,7 @@ jobs:
             /opt/java/openjdk/bin/java -version
             echo Which Java
             which java
-            'export JAVA_HOME="/usr/"'
+            'ENV JAVA_HOME="/usr/"'
             ./mvnw install -Dquarkus.container-image.build=true
 
 
