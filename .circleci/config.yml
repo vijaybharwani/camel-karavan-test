@@ -42,7 +42,8 @@ jobs:
             source /etc/environment
             java -version
             echo $JAVA_HOME
-
+            /opt/java/openjdk/bin/java -version
+            "export JAVA_HOME=/usr/lib/jvm/java-17-openjdk-amd64/"
             ./mvnw install -Dquarkus.container-image.build=true
 
 
