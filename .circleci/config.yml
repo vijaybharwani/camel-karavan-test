@@ -37,11 +37,17 @@ jobs:
             update-alternatives --set java /usr/lib/jvm/java-17-openjdk-amd64/bin/java
             update-alternatives --set javac /usr/lib/jvm/java-17-openjdk-amd64/bin/javac
             source /etc/environment
+            echo Java Version
             java -version
+            echo Java Home
             echo $JAVA_HOME
+            echo PATH
             echo $PATH
+            echo "Open JDK"
             /opt/java/openjdk/bin/java -version
-            "export JAVA_HOME=/usr/lib/jvm/java-17-openjdk-amd64/"
+            echo Which Java
+            which java
+            "export JAVA_HOME=/usr/lib/jvm/java-17-openjdk-amd64"
             ./mvnw install -Dquarkus.container-image.build=true
 
 
