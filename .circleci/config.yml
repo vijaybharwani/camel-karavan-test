@@ -43,7 +43,7 @@ jobs:
       - run:
           name: "Maven Install"
           command: |
-            ./mvnw install -Dquarkus.container-image.build=true
+            ./mvnw package -Dquarkus.container-image.build=true
 
 
 # Orchestrate jobs using workflows
