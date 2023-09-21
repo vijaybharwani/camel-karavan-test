@@ -23,6 +23,10 @@ jobs:
       #     name: "Listing"
       #     command: "ls -la"
       - run:
+          name: "Test Docker"
+          command: "docker ps"
+
+      - run:
           name: "Jbang trust add"
           command: "jbang trust add https://github.com/apache/camel/"
       - run:
@@ -45,12 +49,12 @@ jobs:
       - run:
           name: "Maven Extension"
           command: |
-            ./mvnw quarkus:add-extension -Dextensions='container-image-jib'
+            ./mvnw quarkus:add-extension -Dextensions='container-image-docker'
 
       - run:
           name: "Build Image"
           command: |
-            ./mvnw  install -Dquarkus.container-image.build=true -Dstart-containers -Dtest-containers
+            ./mvnw install -Dquarkus.container-image.build=true -Dstart-containers -Dtest-containers
 
 
 # Orchestrate jobs using workflows
