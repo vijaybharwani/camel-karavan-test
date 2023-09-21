@@ -38,7 +38,7 @@ jobs:
             wget https://github.com/graalvm/graalvm-ce-builds/releases/download/jdk-17.0.8/graalvm-community-jdk-17.0.8_linux-x64_bin.tar.gz -P /usr
             tar -xvzf /usr/graalvm-community-jdk-17.0.8_linux-x64_bin.tar.gz -C /usr/
             ls /usr
-            echo 'export JAVA_HOME=/usr/graal-vm' >> "$BASH_ENV"
+            echo 'export JAVA_HOME=/usr/graalvm-community-openjdk-17.0.8+7.1' >> "$BASH_ENV"
             source "$BASH_ENV"
 
       - run:
