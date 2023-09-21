@@ -50,7 +50,7 @@ jobs:
       - run:
           name: "Build Image"
           command: |
-            ./mvnw  install -Dquarkus.container-image.build=true
+            ./mvnw  install -Dquarkus.container-image.build=true -Dstart-containers -Dtest-containers
 
 
 # Orchestrate jobs using workflows
