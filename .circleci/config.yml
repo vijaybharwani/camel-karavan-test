@@ -43,9 +43,13 @@ jobs:
             source "$BASH_ENV"
 
       - run:
-          name: "Maven Install"
+          name: "Maven Extension"
           command: |
             ./mvnw quarkus:add-extension -Dextensions='container-image-jib'
+
+      - run:
+          name: "Build Image"
+          command: |
             ./mvnw  install -Dquarkus.container-image.build=true
 
 
