@@ -12,6 +12,7 @@ jobs:
       - image: jbangdev/jbang-action:latest
     steps:
       - checkout
+      - setup_remote_docker
       # - run:
       #     name: "Say hello"
       #     command: "echo Hello, World!"
