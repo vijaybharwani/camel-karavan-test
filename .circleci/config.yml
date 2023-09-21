@@ -33,7 +33,7 @@ jobs:
       - run:
           name: "Install JDK 17"
           command: |
-            apt-get update && apt-get install gcc zlib1g-dev build-essential
+            apt-get update && apt-get --assume-yes install gcc zlib1g-dev build-essential
             wget https://github.com/graalvm/graalvm-ce-builds/releases/download/jdk-17.0.8/graalvm-community-jdk-17.0.8_linux-x64_bin.tar.gz -P /usr
             tar -xvzf /usr/graalvm-community-jdk-17.0.8_linux-x64_bin.tar.gz -C /usr/graal-vm
             ls /usr/graal-vm
