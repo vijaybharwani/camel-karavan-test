@@ -33,17 +33,17 @@ jobs:
       - run:
           name: "Install JDK 17"
           command: |
-            apt-get update && apt-get install -y openjdk-17-jdk
-            update-alternatives --set java /usr/lib/jvm/java-17-openjdk-amd64/bin/java
-            update-alternatives --set javac /usr/lib/jvm/java-17-openjdk-amd64/bin/javac
-            source /etc/environment
-            echo 'export JAVA_HOME=/usr/lib/jvm/java-17-openjdk-amd64' >> "$BASH_ENV"
+            apt-get update && sudo apt-get install gcc zlib1g-dev build-essential
+            wget https://github.com/graalvm/graalvm-ce-builds/releases/download/jdk-17.0.8/graalvm-community-jdk-17.0.8_linux-x64_bin.tar.gz -P /usr
+            tar -xvzf /usr/graalvm-community-jdk-17.0.8_linux-x64_bin.tar.gz -C /usr/graal-vm
+            ls /usr/graal-vm
+            echo 'export JAVA_HOME=/usr/graal-vm' >> "$BASH_ENV"
             source "$BASH_ENV"
 
       - run:
           name: "Maven Install"
           command: |
-            ./mvnw package -Dquarkus.container-image.build=true
+            ./mvnw install -Dquarkus.container-image.build=true
 
 
 # Orchestrate jobs using workflows
