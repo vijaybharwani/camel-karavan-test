@@ -1,0 +1,23 @@
+- route:
+    id: route-8cdf
+    from:
+      uri: seda
+      id: from-3cf2
+      parameters:
+        name: get-message
+      steps:
+        - log:
+            message: ${body}
+            id: log-b76c
+        - transform:
+            id: transform-d93f
+            expression:
+              datasonnet:
+                expression: '"Hello World Service"'
+                id: datasonnet-e412
+- rest:
+    id: rest-cff9
+    get:
+      - id: get-70d2
+        to: seda:get-message
+        path: /hello-world
