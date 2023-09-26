@@ -1,3 +1,10 @@
+- rest:
+    id: rest-cff9
+    get:
+      - id: get-70d2
+        to: seda:get-message
+        path: /hello-world
+        enableCors: false
 - route:
     id: route-8cdf
     from:
@@ -6,18 +13,46 @@
       parameters:
         name: get-message
       steps:
+        - setBody:
+            id: setBody-4c55
+            expression:
+              simple:
+                expression: 'Hello World Seda Flow '
+                id: simple-0269
         - log:
             message: ${body}
             id: log-b76c
+        - removeHeaders:
+            pattern: '*'
+            id: removeHeaders-d3b8
+        - to:
+            uri: https
+            id: to-6d97
+            parameters:
+              httpUri: >-
+                api.openweathermap.org/data/2.5/weather?lat=39.7392&lon=-104.9847&appid=845af5ce3313ab1e88f9217a49cadf11&units=imperial
+              httpMethod: GET
+              bridgeEndpoint: true
+              followRedirects: false
+              skipRequestHeaders: true
+              preserveHostHeader: false
+              throwExceptionOnFailure: true
+              clearExpiredCookies: true
+              disableStreamCache: false
+              connectionClose: false
+            pattern: InOut
         - transform:
-            id: transform-d93f
+            id: transform-ac8e
             expression:
               datasonnet:
-                expression: '"Hello World Service"'
-                id: datasonnet-e412
-- rest:
-    id: rest-cff9
-    get:
-      - id: get-70d2
-        to: seda:get-message
-        path: /hello-world
+                expression: |-
+                  {
+                      "message" : "Hello Denver. Today you have " + payload.weather[0].description,
+                      "Minimum Temperature" : payload.main.temp_min + " Fahrenheit",
+                      "Maximum Temperature" : payload.main.temp_max + " Fahrenheit", 
+                  //"response" : payload
+                  }
+                id: datasonnet-ee86
+                bodyMediaType: application/json
+                outputMediaType: application/json
+                resultType: java.lang.String
