@@ -47,10 +47,9 @@
               datasonnet:
                 expression: |-
                   {
-                      "message" : "Hello Denver. Today you have " + payload.weather[0].description,
-                      "Minimum Temperature" : payload.main.temp_min + " Fahrenheit",
-                      "Maximum Temperature" : payload.main.temp_max + " Fahrenheit", 
-                  //"response" : payload
+                      "message" : "Hello Denver. Today the weather is: " + payload.weather[0].description,
+                      "lowTemp" : payload.main.temp_min + " Fahrenheit",
+                      "highTemp" : payload.main.temp_max + " Fahrenheit", 
                   }
                 id: datasonnet-ee86
                 bodyMediaType: application/json
